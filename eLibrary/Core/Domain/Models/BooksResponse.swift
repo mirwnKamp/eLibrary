@@ -5,6 +5,8 @@
 //  Created by Myron Kampourakis on 15/7/24.
 //
 
+import Foundation
+
 class BooksResponse: Decodable {
     var kind: String
     var totalItems: Int
@@ -16,7 +18,7 @@ class Book: Decodable {
     var title: String
     var authors: [String]?
     var desc: String?
-    var imurl: String?
+    var imurl: URL?
     var url: String?
     
     enum CodingKeys: String, CodingKey {
@@ -48,7 +50,7 @@ class Book: Decodable {
         url = try? volumeInfoContainer.decode(String.self, forKey: .url)
         
         if let imageLinksContainer = try? volumeInfoContainer.nestedContainer(keyedBy: CodingKeys.ImageLinksKeys.self, forKey: .imurl) {
-            imurl = try? imageLinksContainer.decode(String.self, forKey: .imurl)
+            imurl = try? imageLinksContainer.decode(URL.self, forKey: .imurl)
         } else {
             imurl = nil
         }

@@ -23,7 +23,7 @@ final class TextInputFormField {
 // MARK: - FormField
 extension TextInputFormField: FormField {
 
-    var height: CGFloat { 44.0 }
+    var height: CGFloat { 160 }
 
     func register(for tableView: UITableView) {
         tableView.register(TextInputCell.self, forCellReuseIdentifier: "TextInputCell")

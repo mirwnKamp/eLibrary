@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423D5A772C4669EA0089DACC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 423D5A762C4669EA0089DACC /* SDWebImageSwiftUI */; };
 		4266E3A72C41525B00081438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3A62C41525B00081438 /* AppDelegate.swift */; };
 		4266E3A92C41525B00081438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3A82C41525B00081438 /* SceneDelegate.swift */; };
 		4266E3AB2C41525B00081438 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3AA2C41525B00081438 /* HomeViewController.swift */; };
-		4266E3AE2C41525B00081438 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4266E3AD2C41525B00081438 /* Base */; };
 		4266E3B02C41525C00081438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4266E3AF2C41525C00081438 /* Assets.xcassets */; };
-		4266E3B32C41525C00081438 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4266E3B22C41525C00081438 /* Base */; };
 		4266E3BC2C4160A000081438 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4266E3BB2C4160A000081438 /* SwiftyJSON */; };
-		4266E3BF2C41615100081438 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4266E3BE2C41615100081438 /* SDWebImage */; };
-		4266E3C12C41615100081438 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4266E3C02C41615100081438 /* SDWebImageMapKit */; };
 		4266E3C92C416AF700081438 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3C82C416AF700081438 /* APIConstants.swift */; };
 		4266E3CC2C45075E00081438 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3CB2C45075E00081438 /* APIRouter.swift */; };
 		4266E3CF2C45080C00081438 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4266E3CE2C45080C00081438 /* Alamofire */; };
@@ -48,9 +45,7 @@
 		4266E3A62C41525B00081438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4266E3A82C41525B00081438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4266E3AA2C41525B00081438 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4266E3AD2C41525B00081438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4266E3AF2C41525C00081438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4266E3B22C41525C00081438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4266E3B42C41525C00081438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4266E3C82C416AF700081438 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		4266E3CB2C45075E00081438 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -83,9 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4266E3BF2C41615100081438 /* SDWebImage in Frameworks */,
+				423D5A772C4669EA0089DACC /* SDWebImageSwiftUI in Frameworks */,
 				4266E3CF2C45080C00081438 /* Alamofire in Frameworks */,
-				4266E3C12C41615100081438 /* SDWebImageMapKit in Frameworks */,
 				4266E3BC2C4160A000081438 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +285,6 @@
 		4266E40C2C45673C00081438 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				4266E3AC2C41525B00081438 /* Main.storyboard */,
 				4266E3F82C4538FC00081438 /* HomeViewModel.swift */,
 				4266E3AA2C41525B00081438 /* HomeViewController.swift */,
 			);
@@ -301,7 +294,6 @@
 		4266E40D2C45676300081438 /* LaunchVC */ = {
 			isa = PBXGroup;
 			children = (
-				4266E3B12C41525C00081438 /* LaunchScreen.storyboard */,
 				4266E40E2C45677700081438 /* LaunchScreenVC.swift */,
 			);
 			path = LaunchVC;
@@ -325,9 +317,8 @@
 			name = eLibrary;
 			packageProductDependencies = (
 				4266E3BB2C4160A000081438 /* SwiftyJSON */,
-				4266E3BE2C41615100081438 /* SDWebImage */,
-				4266E3C02C41615100081438 /* SDWebImageMapKit */,
 				4266E3CE2C45080C00081438 /* Alamofire */,
+				423D5A762C4669EA0089DACC /* SDWebImageSwiftUI */,
 			);
 			productName = eLibrary;
 			productReference = 4266E3A32C41525B00081438 /* eLibrary.app */;
@@ -359,8 +350,8 @@
 			mainGroup = 4266E39A2C41525B00081438;
 			packageReferences = (
 				4266E3BA2C4160A000081438 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				4266E3BD2C41615100081438 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				4266E3CD2C45080C00081438 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				423D5A752C4669EA0089DACC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 4266E3A42C41525B00081438 /* Products */;
 			projectDirPath = "";
@@ -377,8 +368,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4266E3B02C41525C00081438 /* Assets.xcassets in Resources */,
-				4266E3B32C41525C00081438 /* Base in Resources */,
-				4266E3AE2C41525B00081438 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,25 +409,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		4266E3AC2C41525B00081438 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4266E3AD2C41525B00081438 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4266E3B12C41525C00081438 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4266E3B22C41525C00081438 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4266E3B52C41525C00081438 /* Debug */ = {
@@ -573,7 +543,7 @@
 				INFOPLIST_FILE = eLibrary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -603,7 +573,7 @@
 				INFOPLIST_FILE = eLibrary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -644,20 +614,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		423D5A752C4669EA0089DACC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		4266E3BA2C4160A000081438 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.2;
-			};
-		};
-		4266E3BD2C41615100081438 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.19.4;
 			};
 		};
 		4266E3CD2C45080C00081438 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -671,20 +641,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		423D5A762C4669EA0089DACC /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 423D5A752C4669EA0089DACC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		4266E3BB2C4160A000081438 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4266E3BA2C4160A000081438 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
-		};
-		4266E3BE2C41615100081438 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4266E3BD2C41615100081438 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		4266E3C02C41615100081438 /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4266E3BD2C41615100081438 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
 		};
 		4266E3CE2C45080C00081438 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

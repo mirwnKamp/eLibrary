@@ -44,14 +44,13 @@ final class HomeViewModel {
             NetworkingClient.booksSearch(query: query) { response in
                 var homeViewFields: [TextInputFormField] = []
                 response?.items.forEach { data in
-                    let viewModel = TextInputViewModel(title: data.title)
+                    let viewModel = TextInputViewModel(title: data.title,author: data.authors ?? [""], desc: data.desc ?? "", image: data.imurl ?? URL(fileURLWithPath: ""))
                     let formField = TextInputFormField(key: FormFieldKey.phoneCall(), viewModel: viewModel)
                     homeViewFields.append(formField)
                 }
                 let sections: [FormSection] = [
                     .init(
                         key: FormSectionKey.otherField(),
-                        header: TitleFormHeader(key: "Other", viewModel: .init(title: String(localized: "Your e-Library"))),
                         fields: homeViewFields
                     )
                 ]
