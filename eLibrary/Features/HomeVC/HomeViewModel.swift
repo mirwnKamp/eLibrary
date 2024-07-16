@@ -39,6 +39,28 @@ final class HomeViewModel {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
          }
     }
+    
+    func searchBooks(query: String) {
+            NetworkingClient.booksSearch(query: query) { response in
+                var homeViewFields: [TextInputFormField] = []
+                response?.items.forEach { data in
+                    let viewModel = TextInputViewModel(title: data.title)
+                    let formField = TextInputFormField(key: FormFieldKey.phoneCall(), viewModel: viewModel)
+                    homeViewFields.append(formField)
+                }
+                let sections: [FormSection] = [
+                    .init(
+                        key: FormSectionKey.otherField(),
+                        header: TitleFormHeader(key: "Other", viewModel: .init(title: String(localized: "Your e-Library"))),
+                        fields: homeViewFields
+                    )
+                ]
+                self.view?.dataSource.updateSections(sections)
+                self.view?.dataSource.fields.forEach {
+                    $0.delegate = self
+                }
+            }
+        }
 }
 
 // MARK: - FormDemoViewOutput
@@ -46,28 +68,13 @@ final class HomeViewModel {
 extension HomeViewModel: FormDemoViewOutput {
 
     func viewDidLoad() {
-        view?.configure()
-        NetworkingClient.booksSearch { response in
-            var homeViewFields: [TextInputFormField] = []
-            response?.items.forEach { data in
-                let viewModel = TextInputViewModel(title: data.title)
-                let formField = TextInputFormField(key: FormFieldKey.phoneCall(), viewModel: viewModel)
-                homeViewFields.append(formField)
-            }
-            let sections: [FormSection] = [
-                .init(
-                    key: FormSectionKey.otherField(),
-                    header: TitleFormHeader(key: "Other", viewModel: .init(title: String(localized: "Your e-Library"))),
-                    fields: homeViewFields
-                )
-                
-            ]
-            self.view?.dataSource.updateSections(sections)
-            self.view?.dataSource.fields.forEach {
-                $0.delegate = self
-            }
+            view?.configure()
+            searchBooks(query: "swift") // Default search
         }
-    }
+        
+    func searchBooks(with query: String) {
+            searchBooks(query: query)
+        }
 }
 
 extension HomeViewModel: FormFieldDelegate {

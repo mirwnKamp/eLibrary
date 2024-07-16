@@ -14,7 +14,7 @@ enum APIRouter: URLRequestConvertible {
         DataEncoder()
     }
     
-    case retrieveBooks
+    case retrieveBooks(query: String)
     
     var method: HTTPMethod {
         switch self {
@@ -38,7 +38,7 @@ enum APIRouter: URLRequestConvertible {
     
     var parameters: [String: String] {
         switch self {
-        case .retrieveBooks: return ["q": "java"]
+        case .retrieveBooks(let query): return ["q": query]
         }
     }
     
