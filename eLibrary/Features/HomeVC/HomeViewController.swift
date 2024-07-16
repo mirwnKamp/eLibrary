@@ -85,7 +85,6 @@ class HomeViewController: FormViewController {
     
     private func setupNavigationBar() {
         searchBar.delegate = self
-        searchBar.placeholder = "Search books"
         navigationItem.titleView = searchBar
     }
     
