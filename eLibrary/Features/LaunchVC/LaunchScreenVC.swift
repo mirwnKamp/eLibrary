@@ -11,6 +11,6 @@ class LaunchScreenVC: UIViewController, Coordinator {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigate(NavigationItem(page: .main, navigationStyle: .setInitialNavigationRootControllers(animated: false)))
+        navigate(NavigationItem(page: .main, navigationStyle: .push(animated: false)))
     }
 }

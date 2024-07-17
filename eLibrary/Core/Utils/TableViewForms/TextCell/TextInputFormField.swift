@@ -54,8 +54,7 @@ extension TextInputFormField: FieldDataSource {
 // MARK: - TextInputCellDelegate
 extension TextInputFormField: TextInputCellDelegate {
 
-    func cell(_ cell: TextInputCell, didTapWith value: Bool) {
-        viewModel.isSelected = value
-        delegate?.fieldDidTap(self)
+    func cell(_ cell: TextInputCell, didTapWith value: Book) {
+        delegate?.fieldDidTap(self, bookData: value)
     }
 }

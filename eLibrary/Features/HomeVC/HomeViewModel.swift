@@ -8,82 +8,63 @@
 import UIKit
 
 final class HomeViewModel {
-
+    
     weak var view: FormDemoViewInput?
-
+    
     init() {}
     
-    private func handlePhoneCall() {
+    private func handleTableCell(bookData: Book) {
         guard let view = view else { return }
-        let phoneCall = view.dataSource.getValue(
+        let tableCell = view.dataSource.getValue(
             of: TextInputFormField.self,
-            byKey: FormFieldKey.phoneCall()
+            byKey: FormFieldKey.tableCell()
         )
-        if phoneCall {
-        }
-    }
-    
-    private func handleLogout() {
-        guard let view = view else { return }
-        let logout = view.dataSource.getValue(
-            of: TextInputFormField.self,
-            byKey: FormFieldKey.logout()
-        )
-        if logout {
-
-        }
-    }
-    
-    func callPhone(phoneNumber: String?) {
-        if let phoneNumber = phoneNumber, let url = URL(string: "tel://\(phoneNumber)") {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-         }
+        view.navigate(NavigationItem(page: .readScreen(bookData: bookData), navigationStyle: .push(animated: true)))
     }
     
     func searchBooks(query: String) {
-            NetworkingClient.booksSearch(query: query) { response in
-                var homeViewFields: [TextInputFormField] = []
-                response?.items.forEach { data in
-                    let viewModel = TextInputViewModel(title: data.title,author: data.authors ?? [""], desc: data.desc ?? "", image: data.imurl ?? URL(fileURLWithPath: ""))
-                    let formField = TextInputFormField(key: FormFieldKey.phoneCall(), viewModel: viewModel)
-                    homeViewFields.append(formField)
-                }
-                let sections: [FormSection] = [
-                    .init(
-                        key: FormSectionKey.otherField(),
-                        fields: homeViewFields
-                    )
-                ]
-                self.view?.dataSource.updateSections(sections)
-                self.view?.dataSource.fields.forEach {
-                    $0.delegate = self
-                }
+        NetworkingClient.booksSearch(query: query) { response in
+            var homeViewFields: [TextInputFormField] = []
+            response?.items.forEach { data in
+                let viewModel = TextInputViewModel(bookData: data,title: data.title,author: data.authors ?? [""], desc: data.desc ?? "", image: data.imurl ?? URL(fileURLWithPath: ""))
+                let formField = TextInputFormField(key: FormFieldKey.tableCell(), viewModel: viewModel)
+                formField.delegate = self
+                homeViewFields.append(formField)
+            }
+            let sections: [FormSection] = [
+                .init(
+                    key: FormSectionKey.otherField(),
+                    fields: homeViewFields
+                )
+            ]
+            self.view?.dataSource.updateSections(sections)
+            self.view?.dataSource.fields.forEach {
+                $0.delegate = self
             }
         }
+    }
 }
 
 // MARK: - FormDemoViewOutput
 
 extension HomeViewModel: FormDemoViewOutput {
-
+    
     func viewDidLoad() {
-            view?.configure()
-            searchBooks(query: "swift") // Default search
-        }
-        
+        view?.configure()
+        searchBooks(query: "swift") // Default search
+    }
+    
     func searchBooks(with query: String) {
-            searchBooks(query: query)
-        }
+        searchBooks(query: query)
+    }
 }
 
 extension HomeViewModel: FormFieldDelegate {
     
-    func fieldDidTap(_ field: any FormField) {
+    func fieldDidTap(_ field: any FormField, bookData: Book) {
         switch field.key {
-        case FormFieldKey.phoneCall.rawValue:
-            handlePhoneCall()
-        case FormFieldKey.logout.rawValue:
-            handleLogout()
+        case FormFieldKey.tableCell.rawValue:
+            handleTableCell(bookData: bookData)
         default: break
         }
     }
@@ -100,8 +81,7 @@ extension HomeViewModel {
     }
     
     enum FormFieldKey: String {
-        case phoneCall
-        case logout
+        case tableCell
         
         func callAsFunction() -> String { rawValue }
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FormDemoViewInput: FormViewInput{
+protocol FormDemoViewInput: FormViewInput, Coordinator {
 
     var dataSource: FormDataSource { get }
 
@@ -39,13 +39,10 @@ class HomeViewController: FormViewController {
     private var headerView = UIView.newAutoLayoutView()
     
     var output: FormDemoViewOutput?
-
-    override func viewWillAppear(_ animated: Bool) {
-        output?.viewDidLoad()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        output?.viewDidLoad()
         // Do any additional setup after loading the view.
         setupHeaderView()
         setupContainerView()

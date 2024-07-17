@@ -9,13 +9,15 @@ import Foundation
 
 struct TextInputViewModel {
 
+    var bookData: Book
     var title: String
     var desc: String
     var author: [String]
     var image: URL
     var isSelected: Bool
 
-    init(title: String, author: [String], desc: String, image: URL, isSelected: Bool = false) {
+    init(bookData: Book, title: String, author: [String], desc: String, image: URL, isSelected: Bool = false) {
+        self.bookData = bookData
         self.title = title
         self.author = author
         self.desc = desc

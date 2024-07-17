@@ -38,7 +38,7 @@ enum APIRouter: URLRequestConvertible {
     
     var parameters: [String: String] {
         switch self {
-        case .retrieveBooks(let query): return ["q": query]
+        case .retrieveBooks(let query): return ["q": query, "maxResults": "20", "startIndex": "0"]
         }
     }
     

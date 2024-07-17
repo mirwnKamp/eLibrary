@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		423D5A772C4669EA0089DACC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 423D5A762C4669EA0089DACC /* SDWebImageSwiftUI */; };
+		423D5A792C46B7C90089DACC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D5A782C46B7C90089DACC /* UserManager.swift */; };
 		4266E3A72C41525B00081438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3A62C41525B00081438 /* AppDelegate.swift */; };
 		4266E3A92C41525B00081438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3A82C41525B00081438 /* SceneDelegate.swift */; };
 		4266E3AB2C41525B00081438 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3AA2C41525B00081438 /* HomeViewController.swift */; };
@@ -38,9 +39,11 @@
 		4266E4042C454B5D00081438 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E4032C454B5D00081438 /* Coordinator.swift */; };
 		4266E4062C454BFD00081438 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E4052C454BFC00081438 /* Constants.swift */; };
 		4266E40F2C45677700081438 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E40E2C45677700081438 /* LaunchScreenVC.swift */; };
+		426836502C47B50A00D7C3D6 /* ReadScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268364F2C47B50A00D7C3D6 /* ReadScreenVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		423D5A782C46B7C90089DACC /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		4266E3A32C41525B00081438 /* eLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4266E3A62C41525B00081438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4266E3A82C41525B00081438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		4266E4032C454B5D00081438 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4266E4052C454BFC00081438 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4266E40E2C45677700081438 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
+		4268364F2C47B50A00D7C3D6 /* ReadScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadScreenVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				4266E3DE2C451A9400081438 /* KeyChainManager.swift */,
+				423D5A782C46B7C90089DACC /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				4266E3FA2C453EDF00081438 /* TitleHeader */,
 				4266E40D2C45676300081438 /* LaunchVC */,
 				4266E40C2C45673C00081438 /* HomeVC */,
+				4268364E2C47B4C100D7C3D6 /* ReadVC */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -297,6 +303,14 @@
 				4266E40E2C45677700081438 /* LaunchScreenVC.swift */,
 			);
 			path = LaunchVC;
+			sourceTree = "<group>";
+		};
+		4268364E2C47B4C100D7C3D6 /* ReadVC */ = {
+			isa = PBXGroup;
+			children = (
+				4268364F2C47B50A00D7C3D6 /* ReadScreenVC.swift */,
+			);
+			path = ReadVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +394,7 @@
 			files = (
 				4266E3F02C45371E00081438 /* InputDataSource.swift in Sources */,
 				4266E3CC2C45075E00081438 /* APIRouter.swift in Sources */,
+				423D5A792C46B7C90089DACC /* UserManager.swift in Sources */,
 				4266E3E32C4534E300081438 /* FormViewController.swift in Sources */,
 				4266E3E72C45351400081438 /* FormSection.swift in Sources */,
 				4266E3FE2C453F0D00081438 /* TitleHeaderFooterView.swift in Sources */,
@@ -397,6 +412,7 @@
 				4266E3A72C41525B00081438 /* AppDelegate.swift in Sources */,
 				4266E3A92C41525B00081438 /* SceneDelegate.swift in Sources */,
 				4266E3F92C4538FC00081438 /* HomeViewModel.swift in Sources */,
+				426836502C47B50A00D7C3D6 /* ReadScreenVC.swift in Sources */,
 				4266E4012C45400500081438 /* UIView+Extension.swift in Sources */,
 				4266E3FC2C453EEF00081438 /* TitleFormHeader.swift in Sources */,
 				4266E3DF2C451A9400081438 /* KeyChainManager.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FormFieldDelegate: AnyObject {
-    func fieldDidTap(_ field: FormField)
+    func fieldDidTap(_ field: FormField, bookData: Book)
 }
 
 protocol FormField: AnyObject {

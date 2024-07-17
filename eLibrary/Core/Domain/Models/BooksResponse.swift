@@ -30,11 +30,11 @@ class Book: Decodable {
             case authors
             case desc = "description"
             case imurl = "imageLinks"
-            case url = "infoLink"
+            case url = "previewLink"
         }
         
         enum ImageLinksKeys: String, CodingKey {
-            case imurl = "thumbnail"
+            case imurl = "smallThumbnail"
         }
     }
     

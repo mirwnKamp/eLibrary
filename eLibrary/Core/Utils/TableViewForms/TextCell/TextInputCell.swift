@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 protocol TextInputCellDelegate: AnyObject {
-    func cell(_ cell: TextInputCell, didTapWith value: Bool)
+    func cell(_ cell: TextInputCell, didTapWith value: Book)
 }
 
 final class TextInputCell: UITableViewCell {
@@ -66,7 +66,7 @@ final class TextInputCell: UITableViewCell {
             bookImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             bookImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             bookImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
-            bookImageView.widthAnchor.constraint(equalToConstant: 120.0),
+            bookImageView.widthAnchor.constraint(equalToConstant: 110.0),
             bookImageView.heightAnchor.constraint(equalToConstant: 200.0), // Adjusted to fit common book dimensions
 
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
@@ -99,7 +99,7 @@ final class TextInputCell: UITableViewCell {
     }
 
     @objc private func handleTapGesture(_ gesture: UITapGestureRecognizer) {
-        delegate?.cell(self, didTapWith: true)
+        delegate?.cell(self, didTapWith: viewModel!.bookData)
         print("you tapped the book : \(titleLabel.text ?? "")")
     }
 }

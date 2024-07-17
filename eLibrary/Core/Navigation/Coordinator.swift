@@ -20,6 +20,7 @@ struct NavigationItem {
         case viewControllers(viewControllers: [UIViewController])
         case viewController(viewController: UIViewController)
         case main
+        case readScreen(bookData: Book)
     }
     
     enum NavigationStyle {
@@ -47,7 +48,8 @@ extension Coordinator {
             controllerToNavigate = viewController
         case .main:
             controllerToNavigate = createHomeVC()
-            self.navigationController?.pushViewController(controllerToNavigate, animated: false)
+        case .readScreen(let bookData):
+            controllerToNavigate =  ReadScreenVC(bookData: bookData)
         }
         
         if let controllerToNavigate = controllerToNavigate {
