@@ -29,7 +29,7 @@ The e-Library app follows the MVVM (Model-View-ViewModel) architecture pattern. 
 ### Navigation
 * A **Coordinator pattern** is used to manage navigation between screens. This improves the organization and scalability of the codebase.
 ### Image Loading
-* **SDWebImageSwiftUI** is used to load book cover images efficiently. This library provides easy integration with SwiftUI and supports various image formats.
+* **SDWebImageSwiftUI** is used to load book cover images efficiently. This library provides easy integration with Swift and SwiftUI and supports various image formats.
 
 ## Acknowledgements
 * [Google Books API](https://developers.google.com/books/docs/v1/getting_started)
