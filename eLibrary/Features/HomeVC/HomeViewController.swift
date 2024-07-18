@@ -8,16 +8,17 @@
 import UIKit
 
 protocol FormDemoViewInput: FormViewInput, Coordinator {
-
+    
     var dataSource: FormDataSource { get }
-
+    
     func configure()
 }
 
 protocol FormDemoViewOutput: AnyObject {
-
-    func viewDidLoad()
-    func searchBooks(query: String)
+    
+    func viewDidLoad(index: Int)
+    func searchBooks(query: String, index: Int)
+    func loadMoreData(query: String, index: Int, completion: @escaping () -> Void)
 }
 
 class HomeViewController: FormViewController {
@@ -38,11 +39,14 @@ class HomeViewController: FormViewController {
     }()
     private var headerView = UIView.newAutoLayoutView()
     
+    var loadingData = false
+    var startIndex = 20
+    var getQuery = "Swift"
     var output: FormDemoViewOutput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        output?.viewDidLoad()
+        output?.viewDidLoad(index: 0)
         // Do any additional setup after loading the view.
         setupHeaderView()
         setupContainerView()
@@ -76,7 +80,7 @@ class HomeViewController: FormViewController {
             searchBar.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
             searchBar.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
-            searchBar.heightAnchor.constraint(equalToConstant: 46) // Adjust the height as needed
+            searchBar.heightAnchor.constraint(equalToConstant: 46)
         ])
     }
     
@@ -96,15 +100,28 @@ class HomeViewController: FormViewController {
     }
     
     func setupTableViewConstraints() {
-            containerView.addSubview(tableView)
-            NSLayoutConstraint.activate([
-                tableView.topAnchor.constraint(equalTo: containerView.topAnchor),
-                tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-                tableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
-            ])
+        containerView.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+        ])
     }
-
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let threshold = 10
+        let totalRows = tableView.numberOfRows(inSection: indexPath.section)
+        let remainingRows = totalRows - indexPath.row
+        
+        if !loadingData && remainingRows < threshold && !dataSource.fields.isEmpty {
+            loadingData = true
+            startIndex += 20
+            output?.loadMoreData(query: getQuery, index: startIndex) {
+                self.loadingData = false
+            }
+        }
+    }
 }
 
 extension HomeViewController {
@@ -114,13 +131,18 @@ extension HomeViewController {
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
-        output?.searchBooks(query: searchTerm)
+        output?.searchBooks(query: searchTerm, index: 0)
+        startIndex = 0
+        getQuery = searchTerm
         searchBar.resignFirstResponder()
+        if !dataSource.fields.isEmpty {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        }
     }
 }
 
 extension HomeViewController: FormDemoViewInput {
-
+    
     func configure() {
         setUpLayout()
     }

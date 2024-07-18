@@ -14,7 +14,7 @@ enum APIRouter: URLRequestConvertible {
         DataEncoder()
     }
     
-    case retrieveBooks(query: String)
+    case retrieveBooks(query: String, index: Int)
     
     var method: HTTPMethod {
         switch self {
@@ -38,7 +38,7 @@ enum APIRouter: URLRequestConvertible {
     
     var parameters: [String: String] {
         switch self {
-        case .retrieveBooks(let query): return ["q": query, "maxResults": "20", "startIndex": "0"]
+        case .retrieveBooks(let query, let index): return ["q": query, "maxResults": "20", "startIndex": "\(index)"]
         }
     }
     

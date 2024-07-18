@@ -6,9 +6,9 @@
 //
 
 extension NetworkingClient {
-    static func booksSearch(query: String, completion: @escaping (BooksResponse?) -> Void) {
+    static func booksSearch(query: String,index: Int, completion: @escaping (BooksResponse?) -> Void) {
         session.request(APIRouter
-            .retrieveBooks(query: query))
+            .retrieveBooks(query: query, index: index))
         .validate()
         .responseDecodable(of: BooksResponse.self) { response in
             switch response.response?.statusCode {
