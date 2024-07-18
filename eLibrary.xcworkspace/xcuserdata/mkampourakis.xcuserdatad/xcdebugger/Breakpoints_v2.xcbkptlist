@@ -450,36 +450,6 @@
             endingLineNumber = "28"
             landmarkName = "searchBooks(query:index:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EACE674C-C1EE-4543-8E23-898A9EFD4E50 - aa828220e2599623"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in eLibrary.HomeViewModel.searchBooks(query: Swift.String, index: Swift.Int) -&gt; ()"
-                  moduleName = "eLibrary"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mkampourakis/Desktop/external%20projects/eLibrary/eLibrary/Features/HomeVC/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28">
-               </Location>
-               <Location
-                  uuid = "EACE674C-C1EE-4543-8E23-898A9EFD4E50 - 3c5f507fbfc7f540"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;eLibrary.BooksResponse&gt;) -&gt; () in closure #1 @Swift.MainActor () -&gt; () in eLibrary.HomeViewModel.searchBooks(query: Swift.String, index: Swift.Int) -&gt; ()"
-                  moduleName = "eLibrary"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mkampourakis/Desktop/external%20projects/eLibrary/eLibrary/Features/HomeVC/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
