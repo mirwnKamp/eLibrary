@@ -25,22 +25,27 @@ final class HomeViewModel {
     
     func searchBooks(query: String, index: Int) {
         DispatchQueue.main.async {
-            NetworkingClient.booksSearch(query: query, index: index) { response in
-                self.homeViewFields.removeAll()
-                response?.items.forEach { data in
-                    let viewModel = TextInputViewModel(bookData: data,title: data.title,author: data.authors ?? [""], desc: data.desc ?? "", image: data.imurl ?? URL(fileURLWithPath: ""))
-                    let formField = TextInputFormField(key: FormFieldKey.tableCell(), viewModel: viewModel)
-                    formField.delegate = self
-                    self.homeViewFields.append(formField)
+            NetworkingClient.booksSearch(query: query, index: index) { [weak self] response in
+                guard let strongSelf = self else { return }
+                strongSelf.homeViewFields.removeAll()
+                if let response = response {
+                    response.items.forEach { data in
+                        let viewModel = TextInputViewModel(bookData: data,title: data.title,author: data.authors ?? [""], desc: data.desc ?? "", image: data.imurl ?? URL(fileURLWithPath: ""))
+                        let formField = TextInputFormField(key: FormFieldKey.tableCell(), viewModel: viewModel)
+                        formField.delegate = self
+                        strongSelf.homeViewFields.append(formField)
+                    }
+                } else {
+                    print ("response is nil")
                 }
                 let sections: [FormSection] = [
                     .init(
                         key: FormSectionKey.otherField(),
-                        fields: self.homeViewFields
+                        fields: strongSelf.homeViewFields
                     )
                 ]
-                self.view?.dataSource.updateSections(sections)
-                self.view?.dataSource.fields.forEach {
+                strongSelf.view?.dataSource.updateSections(sections)
+                strongSelf.view?.dataSource.fields.forEach {
                     $0.delegate = self
                 }
             }
@@ -49,21 +54,26 @@ final class HomeViewModel {
     
     func loadMoreData(query: String, index: Int, completion: @escaping () -> Void) {
         DispatchQueue.main.async {
-            NetworkingClient.booksSearch(query: query, index: index) { response in
-                response?.items.forEach { data in
-                    let viewModel = TextInputViewModel(bookData: data,title: data.title,author: data.authors ?? [""], desc: data.desc ?? "", image: data.imurl ?? URL(fileURLWithPath: ""))
-                    let formField = TextInputFormField(key: FormFieldKey.tableCell(), viewModel: viewModel)
-                    formField.delegate = self
-                    self.homeViewFields.append(formField)
+            NetworkingClient.booksSearch(query: query, index: index) { [weak self] response in
+                guard let strongSelf = self else { return }
+                if let response = response {
+                    response.items.forEach { data in
+                        let viewModel = TextInputViewModel(bookData: data,title: data.title,author: data.authors ?? [""], desc: data.desc ?? "", image: data.imurl ?? URL(fileURLWithPath: ""))
+                        let formField = TextInputFormField(key: FormFieldKey.tableCell(), viewModel: viewModel)
+                        formField.delegate = self
+                        strongSelf.homeViewFields.append(formField)
+                    }
+                } else {
+                    print ("response is nil")
                 }
                 let sections: [FormSection] = [
                     .init(
                         key: FormSectionKey.otherField(),
-                        fields: self.homeViewFields
+                        fields: strongSelf.homeViewFields
                     )
                 ]
-                self.view?.dataSource.updateSections(sections)
-                self.view?.dataSource.fields.forEach {
+                strongSelf.view?.dataSource.updateSections(sections)
+                strongSelf.view?.dataSource.fields.forEach {
                     $0.delegate = self
                 }
                 

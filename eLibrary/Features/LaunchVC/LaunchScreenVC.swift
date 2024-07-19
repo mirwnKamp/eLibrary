@@ -17,15 +17,14 @@ class LaunchScreenVC: UIViewController, Coordinator {
         view.addSubview(animationView)
         animationView.backgroundColor = .white
         animationView.fillToSuperview()
-        
 
         animationView.animation = LottieAnimation.named("booksAnimation")
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
-        
         animationView.play()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.3) {
-            self.navigate(NavigationItem(page: .main, navigationStyle: .push(animated: true)))
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+            self?.navigate(NavigationItem(page: .main, navigationStyle: .push(animated: true)))
         }
 
     }

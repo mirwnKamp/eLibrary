@@ -49,7 +49,7 @@ extension Coordinator {
         case .main:
             controllerToNavigate = createHomeVC()
         case .readScreen(let bookData):
-            controllerToNavigate =  ReadScreenVC(bookData: bookData)
+            controllerToNavigate = ReadScreenVC(bookData: bookData)
         }
         
         if let controllerToNavigate = controllerToNavigate {
