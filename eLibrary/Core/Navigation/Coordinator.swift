@@ -19,7 +19,10 @@ struct NavigationItem {
     enum PageType {
         case viewControllers(viewControllers: [UIViewController])
         case viewController(viewController: UIViewController)
+        case login
+        case register
         case main
+        case profile(delegate: ModalDismissDelegate?)
         case readScreen(bookData: Book)
     }
     
@@ -46,8 +49,14 @@ extension Coordinator {
             controllersToInitialNavigation = viewControllers
         case .viewController(let viewController):
             controllerToNavigate = viewController
+        case .login:
+            controllerToNavigate = LoginViewController()
+        case .register:
+            controllerToNavigate = RegisterViewController()
         case .main:
             controllerToNavigate = createHomeVC()
+        case .profile(let delegate):
+            controllerToNavigate = ProfileViewController(delegate: delegate)
         case .readScreen(let bookData):
             controllerToNavigate = ReadScreenVC(bookData: bookData)
         }
@@ -59,7 +68,7 @@ extension Coordinator {
         DispatchQueue.main.async {
             switch navigationItem.navigationStyle {
             case .present(let animated):
-                controllerToNavigate.modalPresentationStyle = .overFullScreen
+                controllerToNavigate.modalPresentationStyle = .popover
                 self.present(controllerToNavigate, animated: animated)
             case .presentWithinNavigation(let animated, let hidesBottomBar):
                 controllerToNavigate.tabBarController?.hidesBottomBarWhenPushed = hidesBottomBar

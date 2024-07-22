@@ -140,7 +140,7 @@ extension UIView {
         line.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
-    func addHeaderBottomLine(color: UIColor, bottomAnchor: Int) {
+    func addHeaderBottomLine(color: UIColor, bottomAnchor: CGFloat) {
         let line = UIView(frame: CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: 1))
         line.backgroundColor = color
         self.addSubview(line)
@@ -150,11 +150,11 @@ extension UIView {
         line.trailingAnchor.constraint(
             equalTo: self.trailingAnchor).isActive = true
         line.bottomAnchor.constraint(
-            equalTo: self.bottomAnchor, constant: CGFloat(bottomAnchor)).isActive = true
+            equalTo: self.bottomAnchor, constant: bottomAnchor).isActive = true
         line.heightAnchor.constraint(equalToConstant: 0.6).isActive = true
     }
     
-    func addBottomLine(color: UIColor, bottomAnchor: Int) {
+    func addBottomLine(color: UIColor, bottomAnchor: CGFloat) {
         let line = UIView(frame: CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: 1))
         line.backgroundColor = color
         self.addSubview(line)
@@ -165,8 +165,23 @@ extension UIView {
             equalTo: self.trailingAnchor).isActive = true
         line.bottomAnchor.constraint(
             equalTo: self.bottomAnchor,
-            constant: CGFloat(bottomAnchor)).isActive = true
+            constant: bottomAnchor).isActive = true
         line.heightAnchor.constraint(equalToConstant: 1).isActive = true
+    }
+    
+    func addBottomLine(color: UIColor, width: CGFloat, bottomAnchor: CGFloat) {
+        let line = UIView(frame: CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: 1))
+        line.backgroundColor = color
+        self.addSubview(line)
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.leadingAnchor.constraint(
+            equalTo: self.leadingAnchor).isActive = true
+        line.trailingAnchor.constraint(
+            equalTo: self.trailingAnchor).isActive = true
+        line.bottomAnchor.constraint(
+            equalTo: self.bottomAnchor,
+            constant: bottomAnchor).isActive = true
+        line.heightAnchor.constraint(equalToConstant: width).isActive = true
     }
     
     func addTopLine() {

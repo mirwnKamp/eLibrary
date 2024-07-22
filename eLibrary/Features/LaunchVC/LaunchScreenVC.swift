@@ -7,10 +7,12 @@
 
 import UIKit
 import Lottie
+import FirebaseAuth
 
 class LaunchScreenVC: UIViewController, Coordinator {
     
     private var animationView = LottieAnimationView.newAutoLayoutView()
+    let firebaseAuth = Auth.auth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +22,28 @@ class LaunchScreenVC: UIViewController, Coordinator {
 
         animationView.animation = LottieAnimation.named("booksAnimation")
         animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
+        animationView.loopMode = .playOnce
         animationView.play()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
-            self?.navigate(NavigationItem(page: .main, navigationStyle: .push(animated: true)))
-        }
 
+        
+        if firebaseAuth.currentUser != nil {
+            firebaseAuth.currentUser?.reload { error in
+                
+                if let error = error  {
+                    print(error)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+                        self?.navigate(NavigationItem(page: .login, navigationStyle: .push(animated: true)))
+                    }
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+                        self?.navigate(NavigationItem(page: .main, navigationStyle: .push(animated: true)))
+                    }
+                }
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+                self?.navigate(NavigationItem(page: .login, navigationStyle: .push(animated: true)))
+            }
+        }
     }
 }

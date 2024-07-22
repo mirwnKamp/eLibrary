@@ -21,6 +21,10 @@ protocol FormDemoViewOutput: AnyObject {
     func loadMoreData(query: String, index: Int, completion: @escaping () -> Void)
 }
 
+protocol ModalDismissDelegate {
+    func actionAfterDismiss()
+}
+
 class HomeViewController: FormViewController {
     
     private let containerView = UIView.newAutoLayoutView()
@@ -37,12 +41,21 @@ class HomeViewController: FormViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         return titleLabel
     }()
+    private var profile: UIButton = {
+        let profile = UIButton.newAutoLayoutView()
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .medium)
+        let image = UIImage(systemName: "person.crop.circle", withConfiguration: configuration)
+        profile.setImage(image, for: .normal)
+        profile.tintColor = .black
+        return profile
+    }()
     private var headerView = UIView.newAutoLayoutView()
     
     var loadingData = false
     var startIndex = 20
     var getQuery = "Swift"
     var output: FormDemoViewOutput?
+    var delegate: ModalDismissDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +64,9 @@ class HomeViewController: FormViewController {
         setupHeaderView()
         setupContainerView()
         setupTableViewConstraints()
+        
+        delegate = self
+        profile.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
     }
     
     private func setupHeaderView() {
@@ -68,6 +84,7 @@ class HomeViewController: FormViewController {
         ])
         headerView.addSubview(searchBar)
         headerView.addSubview(titleLabel)
+        headerView.addSubview(profile)
         
         // Set up constraints for the titleLabel and searchBar
         NSLayoutConstraint.activate([
@@ -75,6 +92,13 @@ class HomeViewController: FormViewController {
             titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 12),
             titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 4),
             titleLabel.bottomAnchor.constraint(equalTo: searchBar.topAnchor, constant: -6),
+            
+            // Profile Constrains
+            profile.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 4),
+            profile.trailingAnchor.constraint(equalTo: headerView.trailingAnchor,constant: -12),
+            profile.bottomAnchor.constraint(equalTo: searchBar.topAnchor, constant: -6),
+            profile.widthAnchor.constraint(equalToConstant: 40),
+            profile.heightAnchor.constraint(equalToConstant: 40),
             
             // Search Bar Constraints
             searchBar.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
@@ -87,6 +111,10 @@ class HomeViewController: FormViewController {
     private func setupNavigationBar() {
         searchBar.delegate = self
         navigationItem.titleView = searchBar
+    }
+    
+    @objc private func profileTapped() {
+        self.navigate(NavigationItem(page: .profile(delegate: delegate), navigationStyle: .present(animated: true)))
     }
     
     func setupContainerView(){
@@ -121,6 +149,12 @@ class HomeViewController: FormViewController {
                 self.loadingData = false
             }
         }
+    }
+}
+
+extension HomeViewController: ModalDismissDelegate {
+    func actionAfterDismiss() {
+        self.navigate(NavigationItem(page: .login, navigationStyle: .replace(animated: true)))
     }
 }
 
