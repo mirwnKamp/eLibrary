@@ -12,6 +12,7 @@
 		425D8C4B2C4A97F9001D56B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D8C4A2C4A97F9001D56B2 /* LoginViewController.swift */; };
 		4264F1AB2C4E4379000CD66F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264F1AA2C4E4379000CD66F /* RegisterViewController.swift */; };
 		4264F1AE2C4E6807000CD66F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264F1AD2C4E6807000CD66F /* ProfileViewController.swift */; };
+		4264F1B02C4E98EA000CD66F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4264F1AF2C4E98EA000CD66F /* Config.xcconfig */; };
 		4266E3A72C41525B00081438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3A62C41525B00081438 /* AppDelegate.swift */; };
 		4266E3A92C41525B00081438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3A82C41525B00081438 /* SceneDelegate.swift */; };
 		4266E3AB2C41525B00081438 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E3AA2C41525B00081438 /* HomeViewController.swift */; };
@@ -56,6 +57,7 @@
 		425D8C4A2C4A97F9001D56B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4264F1AA2C4E4379000CD66F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4264F1AD2C4E6807000CD66F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4264F1AF2C4E98EA000CD66F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		4266E3A32C41525B00081438 /* eLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4266E3A62C41525B00081438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4266E3A82C41525B00081438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		4266E39A2C41525B00081438 = {
 			isa = PBXGroup;
 			children = (
+				4264F1AF2C4E98EA000CD66F /* Config.xcconfig */,
 				4266E3A52C41525B00081438 /* eLibrary */,
 				4266E3A42C41525B00081438 /* Products */,
 			);
@@ -427,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4266E3B02C41525C00081438 /* Assets.xcassets in Resources */,
+				4264F1B02C4E98EA000CD66F /* Config.xcconfig in Resources */,
 				428783D42C4C69EB008DBDB9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
