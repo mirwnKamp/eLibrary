@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 protocol FormDemoViewInput: FormViewInput, Coordinator {
     
@@ -69,6 +70,15 @@ class HomeViewController: FormViewController {
         profile.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
     }
     
+    @objc private func profileTapped() {
+        if FirebaseApp.app() == nil {
+            
+        } else {
+            self.navigate(NavigationItem(page: .profile(delegate: delegate), navigationStyle: .present(animated: true)))
+        }
+    }
+    
+    //MARK: - UI
     private func setupHeaderView() {
         // Setup the searchBar
         searchBar.delegate = self
@@ -111,10 +121,6 @@ class HomeViewController: FormViewController {
     private func setupNavigationBar() {
         searchBar.delegate = self
         navigationItem.titleView = searchBar
-    }
-    
-    @objc private func profileTapped() {
-        self.navigate(NavigationItem(page: .profile(delegate: delegate), navigationStyle: .present(animated: true)))
     }
     
     func setupContainerView(){

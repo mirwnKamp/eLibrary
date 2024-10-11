@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,6 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        if let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") {
+            FirebaseApp.configure()
+            print("Firebase configured successfully with \(filePath)")
+        }
         
         let window = UIWindow(windowScene: windowScene)
         let launchViewController = LaunchScreenVC()

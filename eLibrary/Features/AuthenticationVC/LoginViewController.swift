@@ -10,8 +10,6 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, Coordinator {
     
-    private let viewModel = AuthenticationViewModel()
-    
     private var contentView = UIView.newAutoLayoutView()
     private var welcLabel: UILabel = {
         let welcLabel = UILabel.newAutoLayoutView()
@@ -67,7 +65,8 @@ class LoginViewController: UIViewController, Coordinator {
         signInButton.addTarget(self, action: #selector(tappedSignIn), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(tappedSignUp), for: .touchUpInside)
     }
-    
+ 
+    // MARK: - UI
     func setupUI() {
         view.addSubview(contentView)
         contentView.fillToSuperview()
@@ -107,6 +106,7 @@ class LoginViewController: UIViewController, Coordinator {
         ])
     }
     
+    //MARK: - Buttons Interact
     @objc func tappedSignIn() {
         guard let email = emailField.text, !email.isEmpty,
                   let password = passwordField.text, !password.isEmpty else {

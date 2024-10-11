@@ -10,8 +10,6 @@ import FirebaseAuth
 
 class RegisterViewController: UIViewController, Coordinator {
     
-    private let viewModel = AuthenticationViewModel()
-    
     private var contentView = UIView.newAutoLayoutView()
     private var descLabel: UILabel = {
         let descLabel = UILabel.newAutoLayoutView()

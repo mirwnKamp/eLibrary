@@ -8,11 +8,11 @@
 import UIKit
 import Lottie
 import FirebaseAuth
+import FirebaseCore
 
 class LaunchScreenVC: UIViewController, Coordinator {
-    
+
     private var animationView = LottieAnimationView.newAutoLayoutView()
-    let firebaseAuth = Auth.auth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,21 @@ class LaunchScreenVC: UIViewController, Coordinator {
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .playOnce
         animationView.play()
-
         
+        if FirebaseApp.app() != nil {
+            checkAuthenticationStatus()
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+                self?.navigate(NavigationItem(page: .main, navigationStyle: .push(animated: true)))
+            }
+        }
+    }
+    
+    private func checkAuthenticationStatus() {
+        let firebaseAuth = Auth.auth()
         if firebaseAuth.currentUser != nil {
             firebaseAuth.currentUser?.reload { error in
-                
-                if let error = error  {
+                if let error = error {
                     print(error)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
                         self?.navigate(NavigationItem(page: .login, navigationStyle: .push(animated: true)))
