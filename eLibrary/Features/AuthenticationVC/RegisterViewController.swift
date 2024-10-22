@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class RegisterViewController: UIViewController, Coordinator {
+class RegisterViewController: UIViewController, Coordinator, AlertPresentableVC {
     
     private var contentView = UIView.newAutoLayoutView()
     private var descLabel: UILabel = {
@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController, Coordinator {
         let signUpButton = UIButton.newAutoLayoutView()
         signUpButton.setTitle("Sign Up", for: .normal)
         signUpButton.setTitleColor(.white, for: .normal)
-        signUpButton.backgroundColor = UIColor(named: "purpleColor")
+        signUpButton.backgroundColor = .purpleCustom
         signUpButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
         signUpButton.fround(radius: 20)
         return signUpButton
@@ -45,7 +45,7 @@ class RegisterViewController: UIViewController, Coordinator {
     private var signInButton: UIButton = {
         let signInButton = UIButton.newAutoLayoutView()
         signInButton.setTitle("Sign In", for: .normal)
-        signInButton.setTitleColor(UIColor(named: "purpleColor"), for: .normal)
+        signInButton.setTitleColor(.purpleCustom, for: .normal)
         signInButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
         return signInButton
     }()
@@ -103,9 +103,10 @@ class RegisterViewController: UIViewController, Coordinator {
                 return
             }
         
-        firebaseAuth.createUser(withEmail: email, password: password ) { success, error in
-            if ((error?.localizedDescription.contains("email address")) != nil) {
-                print(error?.localizedDescription ?? "")
+        firebaseAuth.createUser(withEmail: email, password: password ) { [weak self] success, error in
+            guard let self = self else { return }
+            if let error {
+                self.presentAlert(.emailFormatError(title: "Oops!", description: error.localizedDescription, actionAfterHide: {}))
                 return
             }
             

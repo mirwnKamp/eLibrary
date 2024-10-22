@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		423D5A772C4669EA0089DACC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 423D5A762C4669EA0089DACC /* SDWebImageSwiftUI */; };
 		423D5A792C46B7C90089DACC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D5A782C46B7C90089DACC /* UserManager.swift */; };
-		4256183F2CB9326C0050F462 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4256183E2CB9326C0050F462 /* GoogleService-Info.plist */; };
 		425D8C4B2C4A97F9001D56B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D8C4A2C4A97F9001D56B2 /* LoginViewController.swift */; };
 		4264F1AB2C4E4379000CD66F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264F1AA2C4E4379000CD66F /* RegisterViewController.swift */; };
 		4264F1AE2C4E6807000CD66F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264F1AD2C4E6807000CD66F /* ProfileViewController.swift */; };
@@ -44,6 +43,13 @@
 		4266E4062C454BFD00081438 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E4052C454BFC00081438 /* Constants.swift */; };
 		4266E40F2C45677700081438 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4266E40E2C45677700081438 /* LaunchScreenVC.swift */; };
 		426836502C47B50A00D7C3D6 /* ReadScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268364F2C47B50A00D7C3D6 /* ReadScreenVC.swift */; };
+		4274B3AB2CC7A17E00163DEC /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274B3AA2CC7A17E00163DEC /* AlertVC.swift */; };
+		4274B3AD2CC7A2F300163DEC /* AlertPresentableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274B3AC2CC7A2F300163DEC /* AlertPresentableVC.swift */; };
+		4274B3B02CC7A37A00163DEC /* CustomRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274B3AF2CC7A37A00163DEC /* CustomRoundedButton.swift */; };
+		4274B3B32CC7A43500163DEC /* CustomUnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274B3B22CC7A43500163DEC /* CustomUnderlineButton.swift */; };
+		4274B3B62CC7A4AF00163DEC /* AlertVC+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274B3B52CC7A4AF00163DEC /* AlertVC+Main.swift */; };
+		4274B3B82CC7A4D100163DEC /* AlertPresentableVC+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274B3B72CC7A4D100163DEC /* AlertPresentableVC+Main.swift */; };
+		4274B3BA2CC7A4F700163DEC /* AlertPresentableVC+Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274B3B92CC7A4F700163DEC /* AlertPresentableVC+Generic.swift */; };
 		4275EC2B2C49A6D90063D493 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4275EC2A2C49A6D90063D493 /* Lottie */; };
 		427930982C4BCE6800A6615B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 427930972C4BCE6800A6615B /* FirebaseAnalytics */; };
 		4279309A2C4BCE6800A6615B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 427930992C4BCE6800A6615B /* FirebaseAuth */; };
@@ -52,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		423D5A782C46B7C90089DACC /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		4256183E2CB9326C0050F462 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		425D8C4A2C4A97F9001D56B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4264F1AA2C4E4379000CD66F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4264F1AD2C4E6807000CD66F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +92,13 @@
 		4266E4052C454BFC00081438 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4266E40E2C45677700081438 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		4268364F2C47B50A00D7C3D6 /* ReadScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadScreenVC.swift; sourceTree = "<group>"; };
+		4274B3AA2CC7A17E00163DEC /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		4274B3AC2CC7A2F300163DEC /* AlertPresentableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentableVC.swift; sourceTree = "<group>"; };
+		4274B3AF2CC7A37A00163DEC /* CustomRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedButton.swift; sourceTree = "<group>"; };
+		4274B3B22CC7A43500163DEC /* CustomUnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUnderlineButton.swift; sourceTree = "<group>"; };
+		4274B3B52CC7A4AF00163DEC /* AlertVC+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertVC+Main.swift"; sourceTree = "<group>"; };
+		4274B3B72CC7A4D100163DEC /* AlertPresentableVC+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertPresentableVC+Main.swift"; sourceTree = "<group>"; };
+		4274B3B92CC7A4F700163DEC /* AlertPresentableVC+Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertPresentableVC+Generic.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +161,6 @@
 				4266E3C52C416AD300081438 /* Core */,
 				4266E40B2C45673400081438 /* Features */,
 				4266E3AF2C41525C00081438 /* Assets.xcassets */,
-				4256183E2CB9326C0050F462 /* GoogleService-Info.plist */,
 				4266E3B42C41525C00081438 /* Info.plist */,
 			);
 			path = eLibrary;
@@ -221,6 +232,8 @@
 		4266E3DD2C451A7D00081438 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4274B3AE2CC7A36700163DEC /* Views */,
+				4274B3A92CC7A16D00163DEC /* Alerts */,
 				4266E3FF2C453FE700081438 /* Extensions */,
 				4266E3E12C4534BA00081438 /* TableViewForms */,
 				4266E3E02C4534AC00081438 /* Managers */,
@@ -314,6 +327,7 @@
 		4266E40B2C45673400081438 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4274B3B42CC7A49400163DEC /* Alerts */,
 				425D8C492C4A97D4001D56B2 /* AuthenticationVC */,
 				4266E3FA2C453EDF00081438 /* TitleHeader */,
 				4266E40D2C45676300081438 /* LaunchVC */,
@@ -347,6 +361,34 @@
 				4268364F2C47B50A00D7C3D6 /* ReadScreenVC.swift */,
 			);
 			path = ReadVC;
+			sourceTree = "<group>";
+		};
+		4274B3A92CC7A16D00163DEC /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				4274B3AA2CC7A17E00163DEC /* AlertVC.swift */,
+				4274B3AC2CC7A2F300163DEC /* AlertPresentableVC.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		4274B3AE2CC7A36700163DEC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4274B3AF2CC7A37A00163DEC /* CustomRoundedButton.swift */,
+				4274B3B22CC7A43500163DEC /* CustomUnderlineButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4274B3B42CC7A49400163DEC /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				4274B3B52CC7A4AF00163DEC /* AlertVC+Main.swift */,
+				4274B3B72CC7A4D100163DEC /* AlertPresentableVC+Main.swift */,
+				4274B3B92CC7A4F700163DEC /* AlertPresentableVC+Generic.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,7 +466,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4266E3B02C41525C00081438 /* Assets.xcassets in Resources */,
-				4256183F2CB9326C0050F462 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,22 +480,28 @@
 				4266E3CC2C45075E00081438 /* APIRouter.swift in Sources */,
 				423D5A792C46B7C90089DACC /* UserManager.swift in Sources */,
 				4266E3E32C4534E300081438 /* FormViewController.swift in Sources */,
+				4274B3B82CC7A4D100163DEC /* AlertPresentableVC+Main.swift in Sources */,
 				4266E3E72C45351400081438 /* FormSection.swift in Sources */,
 				4266E3FE2C453F0D00081438 /* TitleHeaderFooterView.swift in Sources */,
 				4264F1AE2C4E6807000CD66F /* ProfileViewController.swift in Sources */,
 				4266E3C92C416AF700081438 /* APIConstants.swift in Sources */,
 				4266E3F32C45385400081438 /* TextInputCell.swift in Sources */,
+				4274B3AD2CC7A2F300163DEC /* AlertPresentableVC.swift in Sources */,
 				4266E4062C454BFD00081438 /* Constants.swift in Sources */,
 				4266E3DC2C4519A500081438 /* NetworkingClient.swift in Sources */,
 				4266E3EC2C4536F600081438 /* FieldDataSource.swift in Sources */,
 				4266E3D62C45144E00081438 /* BooksResponse.swift in Sources */,
 				4266E3AB2C41525B00081438 /* HomeViewController.swift in Sources */,
+				4274B3B62CC7A4AF00163DEC /* AlertVC+Main.swift in Sources */,
 				4266E3F52C45386C00081438 /* TextInputViewModel.swift in Sources */,
 				4266E3E52C45350A00081438 /* FormField.swift in Sources */,
 				4266E3F72C45388500081438 /* TextInputFormField.swift in Sources */,
 				4266E3E92C45352700081438 /* FormHeader.swift in Sources */,
+				4274B3AB2CC7A17E00163DEC /* AlertVC.swift in Sources */,
+				4274B3B02CC7A37A00163DEC /* CustomRoundedButton.swift in Sources */,
 				4266E3A72C41525B00081438 /* AppDelegate.swift in Sources */,
 				425D8C4B2C4A97F9001D56B2 /* LoginViewController.swift in Sources */,
+				4274B3BA2CC7A4F700163DEC /* AlertPresentableVC+Generic.swift in Sources */,
 				4266E3A92C41525B00081438 /* SceneDelegate.swift in Sources */,
 				4266E3F92C4538FC00081438 /* HomeViewModel.swift in Sources */,
 				426836502C47B50A00D7C3D6 /* ReadScreenVC.swift in Sources */,
@@ -464,6 +511,7 @@
 				4266E3D42C45098E00081438 /* DataEncoder.swift in Sources */,
 				4264F1AB2C4E4379000CD66F /* RegisterViewController.swift in Sources */,
 				4266E40F2C45677700081438 /* LaunchScreenVC.swift in Sources */,
+				4274B3B32CC7A43500163DEC /* CustomUnderlineButton.swift in Sources */,
 				4266E4042C454B5D00081438 /* Coordinator.swift in Sources */,
 				4266E3EE2C45371400081438 /* FormDataSource.swift in Sources */,
 				4266E3DA2C45196100081438 /* NetworkingClient+BooksSearch.swift in Sources */,
