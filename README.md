@@ -10,6 +10,10 @@ e-Library is an iOS application that leverages Google's Books API to search and 
 * **WebView Integration:** Open book URLs directly in the app using WebView for an enhanced reading experience.
 * **Coordinator for Navigation:** Manages navigation between screens for a more organized and scalable codebase.
 * **SDWebImageSwift:** Loads book cover images efficiently using SDWebImage.
+* **Google Authentication:** Allows users to sign in/ sign up by adding an e-mail and password.
+
+### Google Authentication Integration
+To enable the login feature, users must create Firebase Authentication for the app and add the GoogleService-Info.plist file to the app folder. Alternatively, users can contact kampourakis.murwn@gmail.com to request the file via email. Users can sign up using an email and password.
 
 ### Usage
 - **Search for books** by entering keywords in the search bar.
